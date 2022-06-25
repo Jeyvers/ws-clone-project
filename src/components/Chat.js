@@ -20,12 +20,14 @@ import {
   AttachFileIcon,
   KeyboardVoiceIcon,
 } from '../imports';
+import { useGlobalContext } from '../StateProvider';
 
 const Chat = () => {
   const [input, setInput] = useState('');
   const [groupName, setGroupName] = useState('');
   const [messages, setMessages] = useState([]);
   const { groupId } = useParams();
+  const { user } = useGlobalContext;
   const messagesCol = collection(db, 'groups', groupId, 'messages');
   const messagesColQuery = query(messagesCol, orderBy('timestamp', 'asc'));
 
@@ -34,7 +36,7 @@ const Chat = () => {
     console.log(input);
     addDoc(messagesCol, {
       message: input,
-      name: 'Marvey',
+      name: user.displayName,
       timestamp: moment().format('LT'),
     });
     setInput('');
@@ -85,6 +87,7 @@ const Chat = () => {
       </div>
       <div className='chat-messages'>
         {messages.map((message) => {
+          console.log(user);
           return (
             <div
               className={`message ${

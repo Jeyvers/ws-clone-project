@@ -22,6 +22,50 @@
 
 }
 
+.landing {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient($primary-green 30%, $firstDG-dark-color 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .whatsapp-login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $firstDG-dark-color;
+        height: 350px;
+        width: 400px;
+        background: white;
+        border-radius: 1rem;
+        padding: 1rem;
+
+        button {
+            padding: 1rem;
+            background: $primary-green;
+            outline: none;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 300ms ease-in-out;
+
+            &:hover {
+                background: $dark-green;
+            }
+        }
+    }
+
+}
+
 .sidebar {
     grid-column: 1 / span 5;
 

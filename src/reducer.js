@@ -4,6 +4,7 @@ const reducer = (state, action) => {
   console.log(action);
   switch (action.type) {
     case actionTypes.SET_USER:
+      console.log(action);
       return {
         ...state,
         user: action.user,

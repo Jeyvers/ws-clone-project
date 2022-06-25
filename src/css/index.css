@@ -306,6 +306,65 @@ input {
   margin-bottom: -10px;
 }
 
+.landing {
+  width: 100vw;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #00a884), color-stop(30%, #111b21));
+  background: linear-gradient(#00a884 30%, #111b21 30%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing img {
+  width: 100px;
+  height: 100px;
+}
+
+.landing .whatsapp-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #111b21;
+  height: 350px;
+  width: 400px;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.landing .whatsapp-login button {
+  padding: 1rem;
+  background: #00a884;
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.landing .whatsapp-login button:hover {
+  background: #176b5b;
+}
+
 .sidebar {
   -ms-grid-column: 1;
   -ms-grid-column-span: 5;
