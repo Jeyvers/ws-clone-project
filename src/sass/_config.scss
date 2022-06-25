@@ -1,4 +1,26 @@
+$primary-blue: #53bdeb;
 $primary-green: #00a884;
+$secondary-green: #111b21;
+$dark-green: #176b5b;
 $firstDG-dark-color: #111b21;
 $secondDG-dark-color: #2a3942;
 $thirdDG-dark-color: #343f46;
+$primary-text-color: #fff;
+$thirdDG-light-color: #aebac1;
+$fourthDG-light-color: hsla(0, 0%, 100%, 0.1);
+
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: $primary-text-color;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+}
+
+input {
+    border: none;
+
+}

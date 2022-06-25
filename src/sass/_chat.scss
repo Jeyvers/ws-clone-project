@@ -1,0 +1,126 @@
+.chat {
+    // margin-left: 4rem;
+    // min-width: 600px;
+    background: $firstDG-dark-color url('../img/uMgD8lMmmVBv-whatsapp-dark-pictures-iphone.png');
+    display: grid;
+    grid-template-rows: auto 1fr 55px;
+    height: 100vh;
+}
+
+.chat-nav {}
+
+.chat-nav-info {
+    display: flex;
+
+}
+
+.chat-messages {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+
+
+    .message {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 0 30px;
+        padding: 10px;
+        margin-top: 10px;
+        max-width: 70%;
+        font-size: 15px;
+        border-radius: 10px;
+
+        .sender-name {
+            font-size: 14px;
+            color: $primary-blue;
+            margin-bottom: 5px;
+        }
+
+        .time {
+            margin-top: 5px;
+            align-self: flex-end;
+            font-size: 11px;
+            opacity: 0.7;
+        }
+    }
+
+
+
+    .sender-msg {
+        background-color: $secondDG-dark-color;
+
+
+        &::before {
+            border-top: 5px solid $secondDG-dark-color;
+            top: 0;
+            left: -10px;
+        }
+    }
+
+
+
+    .receiver-msg {
+        background: $dark-green ;
+        align-self: flex-end;
+
+        &::after {
+            border-top: 5px solid $dark-green;
+            top: 0;
+            right: -10px;
+        }
+    }
+
+    .sender-msg::before,
+    .receiver-msg::after {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-width: 10px;
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: transparent;
+
+    }
+}
+
+
+
+.chat-create {
+
+    background: $secondDG-dark-color;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+
+    .MuiSvgIcon-root {
+        margin: 0px;
+    }
+
+    span {
+        flex: 0.2;
+
+    }
+
+    form {
+        background: $fourthDG-light-color;
+        border-radius: 10px;
+        padding: 2px 10px;
+        flex: 4;
+    }
+
+    input {
+        background: transparent;
+        color: $primary-text-color;
+        padding: 8px 10px;
+        height: 50%;
+        // height: 40px;
+
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

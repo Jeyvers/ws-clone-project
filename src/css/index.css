@@ -1,8 +1,289 @@
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #fff;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+}
+
+input {
+  border: none;
+}
+
 .navbar {
   -ms-grid-column: 1;
   -ms-grid-column-span: 12;
   grid-column: 1 / span 12;
   background: #00a884;
+}
+
+.MuiSvgIcon-root {
+  color: #aebac1;
+}
+
+.sidebar {
+  border-right: 1px #aebac1 solid;
+}
+
+.sidebar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 50px;
+  padding: 0 10px;
+  background-color: #2a3942;
+}
+
+.sidebar-nav .avatar .MuiSvgIcon-root {
+  font-size: 2.7rem;
+}
+
+.sidebar-nav > * {
+  padding-inline: 5px;
+}
+
+.sidebar-nav > div span {
+  padding: 7px;
+}
+
+.sidebar-nav > div span .MuiSvgIcon-root {
+  font-size: 1.25rem;
+}
+
+.sidebar-search-area {
+  background: #111b21;
+  padding: 10px;
+}
+
+.sidebar-search-area .sidebar-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #2a3942;
+  padding: 7px 10px;
+  border-radius: .5em;
+}
+
+.sidebar-search-area .sidebar-search .MuiSvgIcon-root {
+  font-size: 1.2rem;
+  padding-inline: 1rem;
+}
+
+.sidebar-search-area .sidebar-search input {
+  outline: none;
+  padding-inline: 1rem;
+  height: 100%;
+  border: none;
+  background: #2a3942;
+  color: #fff;
+}
+
+.chat-list {
+  background: #111b21;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.single-chat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.single-chat .MuiSvgIcon-root {
+  font-size: 3rem;
+}
+
+.single-chat .single-chat-info {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #343f46;
+  padding: 1rem 0;
+}
+
+.single-chat .single-chat-info > * {
+  margin: 2px 0;
+  color: #aebac1;
+  font-size: 14px;
+}
+
+.single-chat .single-chat-info .chat-name {
+  color: #fff;
+  font-size: 1rem;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-column: 1/ span 5;
+}
+
+.single-chat .single-chat-info .chat-time {
+  grid-column: 11/max;
+}
+
+.single-chat .single-chat-info .chat-message {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 12;
+  grid-column: 1/ span 12;
+}
+
+.chat {
+  background: #111b21 url("../img/uMgD8lMmmVBv-whatsapp-dark-pictures-iphone.png");
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr 55px;
+      grid-template-rows: auto 1fr 55px;
+  height: 100vh;
+}
+
+.chat-nav-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chat-messages {
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chat-messages .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  margin: 0 30px;
+  padding: 10px;
+  margin-top: 10px;
+  max-width: 70%;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.chat-messages .message .sender-name {
+  font-size: 14px;
+  color: #53bdeb;
+  margin-bottom: 5px;
+}
+
+.chat-messages .message .time {
+  margin-top: 5px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.chat-messages .sender-msg {
+  background-color: #2a3942;
+}
+
+.chat-messages .sender-msg::before {
+  border-top: 5px solid #2a3942;
+  top: 0;
+  left: -10px;
+}
+
+.chat-messages .receiver-msg {
+  background: #176b5b;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.chat-messages .receiver-msg::after {
+  border-top: 5px solid #176b5b;
+  top: 0;
+  right: -10px;
+}
+
+.chat-messages .sender-msg::before,
+.chat-messages .receiver-msg::after {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-width: 10px;
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+}
+
+.chat-create {
+  background: #2a3942;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 10px;
+}
+
+.chat-create .MuiSvgIcon-root {
+  margin: 0px;
+}
+
+.chat-create span {
+  -webkit-box-flex: 0.2;
+      -ms-flex: 0.2;
+          flex: 0.2;
+}
+
+.chat-create form {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 2px 10px;
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+}
+
+.chat-create input {
+  background: transparent;
+  color: #fff;
+  padding: 8px 10px;
+  height: 50%;
+}
+
+.chat-create input:focus {
+  outline: none;
 }
 
 .home {
@@ -13,15 +294,40 @@
   row-gap: 1rem;
 }
 
+.home-web.chat {
+  background: #2a3942;
+  place-items: center;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.home-web.chat h1 {
+  font-weight: lighter;
+  margin-bottom: -10px;
+}
+
 .sidebar {
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / span 2;
+  -ms-grid-column-span: 5;
+  grid-column: 1 / span 5;
 }
 
 .chat {
-  -ms-grid-column: 3;
+  -ms-grid-column: 6;
   -ms-grid-column-span: 12;
-  grid-column: 3 / span 12;
+  grid-column: 6 / span 12;
+}
+
+@media screen and (min-width: 900px) {
+  .sidebar {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-column: 1 / span 4;
+  }
+  .chat {
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 12;
+    grid-column: 5 / span 12;
+  }
 }
 /*# sourceMappingURL=index.css.map */

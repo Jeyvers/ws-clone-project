@@ -1,0 +1,116 @@
+   .MuiSvgIcon-root {
+       color: $thirdDG-light-color;
+   }
+
+   .sidebar {
+       border-right: 1px $thirdDG-light-color solid;
+       //    min-width: 280px;
+       //    max-width: 380px;
+   }
+
+   .sidebar-nav {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       height: 50px;
+       padding: 0 10px;
+       background-color: $secondDG-dark-color;
+
+
+
+       .avatar .MuiSvgIcon-root {
+           font-size: 2.7rem;
+       }
+
+       &>* {
+           padding-inline: 5px;
+       }
+
+       &>div span {
+           .MuiSvgIcon-root {
+               font-size: 1.25rem;
+           }
+
+           padding: 7px;
+       }
+   }
+
+   .sidebar-search-area {
+       background: $secondary-green;
+       padding: 10px;
+
+       .sidebar-search {
+           display: flex;
+           background: $secondDG-dark-color;
+           padding: 7px 10px;
+           border-radius: .5em;
+
+           .MuiSvgIcon-root {
+               font-size: 1.2rem;
+               padding-inline: 1rem;
+           }
+
+           input {
+               outline: none;
+               padding-inline: 1rem;
+               height: 100%;
+               border: none;
+               background: $secondDG-dark-color;
+               color: $primary-text-color;
+           }
+       }
+   }
+
+
+   //Chat list
+
+   .chat-list {
+       background: $secondary-green;
+       height: 100vh;
+       display: flex;
+       flex-direction: column;
+       overflow-y: auto;
+       scroll-behavior: smooth;
+
+   }
+
+   .single-chat {
+
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       padding: 0 10px;
+
+       .MuiSvgIcon-root {
+           font-size: 3rem;
+       }
+
+       .single-chat-info {
+           display: grid;
+           grid-template-columns: repeat(12, 1fr);
+           column-gap: 1rem;
+           justify-content: space-between;
+           border-bottom: 1px solid $thirdDG-dark-color;
+           padding: 1rem 0;
+
+           &>* {
+               margin: 2px 0;
+               color: $thirdDG-light-color;
+               font-size: 14px;
+           }
+
+           .chat-name {
+               color: $primary-text-color;
+               font-size: 1rem;
+               grid-column: 1/ span 5;
+           }
+
+           .chat-time {
+               grid-column: 11/max;
+           }
+
+           .chat-message {
+               grid-column: 1/ span 12;
+           }
+       }
+   }
