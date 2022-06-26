@@ -6,7 +6,7 @@ import { useGlobalContext } from '../StateProvider';
 import SingleChat from './SingleChat';
 
 const ChatList = () => {
-  const { roomsCol } = useGlobalContext();
+  const { roomsCol, messages, setMessages } = useGlobalContext();
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {

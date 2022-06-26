@@ -9,7 +9,7 @@ import Landing from './pages/Landing';
 
 function App() {
   const { user } = useGlobalContext();
-
+  console.log(user);
   return (
     <>
       {!user ? (

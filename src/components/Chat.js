@@ -5,7 +5,6 @@ import {
   query,
   doc,
   addDoc,
-  serverTimestamp,
 } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
@@ -21,19 +20,20 @@ import {
   KeyboardVoiceIcon,
 } from '../imports';
 import { useGlobalContext } from '../StateProvider';
+import zIndex from '@mui/material/styles/zIndex';
 
 const Chat = () => {
   const [input, setInput] = useState('');
   const [groupName, setGroupName] = useState('');
-  const [messages, setMessages] = useState([]);
+  // const [messages, setMessages] = useState([]);
   const { groupId } = useParams();
-  const { user } = useGlobalContext;
+  const { user, messages, setMessages } = useGlobalContext();
   const messagesCol = collection(db, 'groups', groupId, 'messages');
   const messagesColQuery = query(messagesCol, orderBy('timestamp', 'asc'));
 
+  // add brackets
   const createMessage = (e) => {
     e.preventDefault();
-    console.log(input);
     addDoc(messagesCol, {
       message: input,
       name: user.displayName,
@@ -54,7 +54,6 @@ const Chat = () => {
         const messagesInDoc = [];
         snapshot.forEach((doc) => {
           messagesInDoc.push(doc.data());
-          console.log('Current data:', doc.data());
         });
         setMessages(messagesInDoc);
       });
@@ -86,29 +85,22 @@ const Chat = () => {
         </div>
       </div>
       <div className='chat-messages'>
-        {messages.map((message) => {
-          console.log(user);
+        {messages.map((message, index) => {
           return (
             <div
+              key={index}
               className={`message ${
-                message.name === 'Jeyi' ? 'sender-msg' : 'receiver-msg'
+                message.name === user.displayName
+                  ? 'receiver-msg'
+                  : 'sender-msg'
               }`}
             >
               <small className='sender-name'> ~ {message.name}</small>
               {message.message}
-              <small className='time'>4.18PM</small>
+              <small className='time'>{message.timestamp}</small>
             </div>
           );
         })}
-        <div className='message sender-msg'>
-          <small className='sender-name'> ~ Marvey</small>
-          Sorry about your current health situation too.
-          <small className='time'>4.18PM</small>
-        </div>
-        <div className='message receiver-msg'>
-          You can't handle when I talk to you?
-          <small className='time'>4.18PM</small>
-        </div>
       </div>
       <div className='chat-create'>
         <span>

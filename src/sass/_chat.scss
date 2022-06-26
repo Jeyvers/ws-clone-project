@@ -19,12 +19,12 @@
     display: flex;
     flex-direction: column;
 
-
     .message {
         display: flex;
         flex-direction: column;
         position: relative;
-        margin: 0 30px;
+        margin: 10px 30px;
+        min-width: 100px;
         padding: 10px;
         margin-top: 10px;
         max-width: 70%;
@@ -94,6 +94,7 @@
     display: flex;
     align-items: center;
     padding: 5px 10px;
+
 
     .MuiSvgIcon-root {
         margin: 0px;

@@ -38,7 +38,7 @@ input {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 50px;
-  padding: 0 10px;
+  padding: 10px;
   background-color: #2a3942;
 }
 
@@ -125,6 +125,7 @@ input {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100%;
   border-bottom: 1px solid #343f46;
   padding: 1rem 0;
 }
@@ -188,7 +189,8 @@ input {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  margin: 0 30px;
+  margin: 10px 30px;
+  min-width: 100px;
   padding: 10px;
   margin-top: 10px;
   max-width: 70%;

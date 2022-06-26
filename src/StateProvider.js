@@ -1,5 +1,5 @@
 import { collection } from 'firebase/firestore';
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 import { db } from './firebase';
 import reducer from './reducer';
 
@@ -16,10 +16,14 @@ const initialState = { user: null };
 
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [messages, setMessages] = useState([]);
+
   const roomsCol = collection(db, 'groups');
 
   return (
-    <StateContext.Provider value={{ ...state, dispatch, roomsCol }}>
+    <StateContext.Provider
+      value={{ ...state, dispatch, messages, setMessages, roomsCol }}
+    >
       {children}
     </StateContext.Provider>
   );
