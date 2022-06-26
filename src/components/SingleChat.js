@@ -8,7 +8,6 @@ import { db } from '../firebase';
 const SingleChat = ({ id, data }) => {
   const [messages, setMessages] = useState();
   const { roomsCol } = useGlobalContext();
-  console.log(messages);
 
   useEffect(() => {
     if (id) {

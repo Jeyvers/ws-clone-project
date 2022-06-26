@@ -190,10 +190,13 @@ input {
           flex-direction: column;
   position: relative;
   margin: 10px 30px;
-  min-width: 100px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 150px;
+  max-width: 70%;
   padding: 10px;
   margin-top: 10px;
-  max-width: 70%;
   font-size: 15px;
   border-radius: 10px;
 }
@@ -269,7 +272,7 @@ input {
 }
 
 .chat-create form {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.057);
   border-radius: 10px;
   padding: 2px 10px;
   -webkit-box-flex: 4;
@@ -288,12 +291,95 @@ input {
   outline: none;
 }
 
+.emoji-container {
+  position: absolute;
+  bottom: 55px;
+  -webkit-transition: bottom 1s ease-in-out;
+  transition: bottom 1s ease-in-out;
+  -webkit-animation: openEmoji 300ms ease-in-out;
+          animation: openEmoji 300ms ease-in-out;
+}
+
+.emoji-container.hidden {
+  bottom: 0px;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  -webkit-animation: closeEmoji 1s ease-in-out;
+          animation: closeEmoji 1s ease-in-out;
+  display: none;
+}
+
+.emoji-container .emoji-picker-react {
+  min-width: 582px;
+  width: 100%;
+  color: white;
+  background: #343f46;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.emoji-container .emoji-picker-react .emoji-group::before {
+  background: #343f46;
+}
+
+.emoji-container .emoji-picker-react .emoji-search {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.057);
+  color: white;
+  border: none;
+}
+
+@-webkit-keyframes openEmoji {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 55px;
+  }
+}
+
+@keyframes openEmoji {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 55px;
+  }
+}
+
+@-webkit-keyframes closeEmoji {
+  from {
+    bottom: 55px;
+  }
+  to {
+    bottom: 0;
+    display: none;
+  }
+}
+
+@keyframes closeEmoji {
+  from {
+    bottom: 55px;
+  }
+  to {
+    bottom: 0;
+    display: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
 .home {
-  display: -ms-grid;
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-grid-columns: (1fr)[12];
       grid-template-columns: repeat(12, 1fr);
   row-gap: 1rem;
+  width: 100vw;
 }
 
 .home-web.chat {
@@ -368,27 +454,17 @@ input {
 }
 
 .sidebar {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 5;
-  grid-column: 1 / span 5;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  min-width: 400px;
 }
 
 .chat {
-  -ms-grid-column: 6;
-  -ms-grid-column-span: 12;
-  grid-column: 6 / span 12;
-}
-
-@media screen and (min-width: 900px) {
-  .sidebar {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 4;
-    grid-column: 1 / span 4;
-  }
-  .chat {
-    -ms-grid-column: 5;
-    -ms-grid-column-span: 12;
-    grid-column: 5 / span 12;
-  }
+  width: 500px;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  min-width: 600px;
 }
 /*# sourceMappingURL=index.css.map */

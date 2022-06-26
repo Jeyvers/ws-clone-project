@@ -21,15 +21,22 @@ import {
 } from '../imports';
 import { useGlobalContext } from '../StateProvider';
 import zIndex from '@mui/material/styles/zIndex';
+import EmojiPicker from 'emoji-picker-react';
 
 const Chat = () => {
   const [input, setInput] = useState('');
   const [groupName, setGroupName] = useState('');
-  // const [messages, setMessages] = useState([]);
+  const [showEmoji, setShowEmoji] = useState(false);
   const { groupId } = useParams();
   const { user, messages, setMessages } = useGlobalContext();
   const messagesCol = collection(db, 'groups', groupId, 'messages');
   const messagesColQuery = query(messagesCol, orderBy('timestamp', 'asc'));
+  const [chosenEmoji, setChosenEmoji] = useState(null);
+
+  const onEmojiClick = (event, emojiObject) => {
+    setChosenEmoji(emojiObject);
+    setInput(input + emojiObject.emoji);
+  };
 
   // add brackets
   const createMessage = (e) => {
@@ -40,6 +47,7 @@ const Chat = () => {
       timestamp: moment().format('LT'),
     });
     setInput('');
+    setShowEmoji(false);
   };
 
   useEffect(() => {
@@ -102,8 +110,15 @@ const Chat = () => {
           );
         })}
       </div>
+      <div className={` emoji-container ${showEmoji && 'hidden'}`}>
+        <EmojiPicker onEmojiClick={onEmojiClick} />
+      </div>
       <div className='chat-create'>
-        <span>
+        <span
+          onClick={() => {
+            setShowEmoji(!showEmoji);
+          }}
+        >
           <IconButton>
             <TagFacesIcon />
           </IconButton>
@@ -132,3 +147,7 @@ const Chat = () => {
 };
 
 export default Chat;
+
+// Todo
+//  Change Emoji icon on showEmoji
+// Change Voice icon on type

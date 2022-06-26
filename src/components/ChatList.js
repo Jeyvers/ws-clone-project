@@ -14,7 +14,6 @@ const ChatList = () => {
       const groups = [];
       colSnapShot.forEach((doc) => {
         groups.push({ id: doc.id, data: doc.data() });
-        console.log(groups);
       });
       setGroups(groups);
     });

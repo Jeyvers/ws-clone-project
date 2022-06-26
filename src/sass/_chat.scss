@@ -24,10 +24,12 @@
         flex-direction: column;
         position: relative;
         margin: 10px 30px;
-        min-width: 100px;
+        width: max-content;
+        min-width: 150px;
+        max-width: 70%;
         padding: 10px;
         margin-top: 10px;
-        max-width: 70%;
+
         font-size: 15px;
         border-radius: 10px;
 
@@ -123,5 +125,70 @@
         &:focus {
             outline: none;
         }
+    }
+}
+
+.emoji-container {
+
+    position: absolute;
+    // top: 30%;
+    bottom: 55px;
+    transition: bottom 1s ease-in-out;
+    animation: openEmoji 300ms ease-in-out;
+
+    &.hidden {
+        bottom: 0px;
+        transition: all 1s ease-in-out;
+        animation: closeEmoji 1s ease-in-out;
+        display: none;
+    }
+
+    .emoji-picker-react {
+        min-width: 582px;
+        width: 100%;
+
+        color: white;
+
+        background: $thirdDG-dark-color;
+        border: none;
+        box-shadow: none;
+
+        .emoji-categories button {
+            // background: white;
+        }
+
+        .emoji-group::before {
+            background: $thirdDG-dark-color;
+        }
+
+        .emoji-search {
+            margin-top: 10px;
+            background: $fourthDG-light-color;
+            color: white;
+            border: none;
+        }
+
+    }
+}
+
+@keyframes openEmoji {
+    from {
+        bottom: 0
+    }
+
+    to {
+        bottom: 55px;
+    }
+}
+
+@keyframes closeEmoji {
+    from {
+        bottom: 55px;
+
+    }
+
+    to {
+        bottom: 0;
+        display: none;
     }
 }
