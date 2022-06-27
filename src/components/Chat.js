@@ -51,44 +51,6 @@ const Chat = () => {
     setShowEmoji(false);
   };
 
-  const ChatCreate = () => {
-    return (
-      <div className='chat-create'>
-        <span
-          onClick={() => {
-            setShowEmoji(!showEmoji);
-          }}
-        >
-          <IconButton>
-            {!showEmoji ? (
-              <TagFacesIcon />
-            ) : (
-              <CloseIcon className='close-emoji' />
-            )}
-          </IconButton>
-        </span>
-        <span>
-          <IconButton>
-            <AttachFileIcon />
-          </IconButton>
-        </span>
-        <form onSubmit={createMessage}>
-          <input
-            type='text'
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder='Type a message'
-          />
-        </form>
-        <span>
-          <IconButton>
-            <KeyboardVoiceIcon />
-          </IconButton>
-        </span>
-      </div>
-    );
-  };
-
   useEffect(() => {
     if (groupId) {
       //
@@ -153,7 +115,42 @@ const Chat = () => {
       <div className={` emoji-container ${!showEmoji && 'hidden'}`}>
         <EmojiPicker onEmojiClick={onEmojiClick} />
       </div>
-      <ChatCreate />
+      <div className='chat-create'>
+        <span
+          onClick={() => {
+            setShowEmoji(!showEmoji);
+          }}
+        >
+          <IconButton>
+            {!showEmoji ? (
+              <TagFacesIcon />
+            ) : (
+              <CloseIcon className='close-emoji' />
+            )}
+          </IconButton>
+        </span>
+        <span>
+          <IconButton>
+            <AttachFileIcon />
+          </IconButton>
+        </span>
+        <form onSubmit={createMessage}>
+          <input
+            type='text'
+            value={input}
+            onChange={(e) => {
+              setInput(e.target.value);
+              e.target.focus();
+            }}
+            placeholder='Type a message'
+          />
+        </form>
+        <span>
+          <IconButton>
+            <KeyboardVoiceIcon />
+          </IconButton>
+        </span>
+      </div>
     </div>
   );
 };
