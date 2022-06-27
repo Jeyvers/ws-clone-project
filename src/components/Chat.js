@@ -160,7 +160,7 @@ const Chat = () => {
           );
         })}
       </div>
-      <input type='file' />
+    
       <div className={` emoji-container ${!showEmoji && 'hidden'}`}>
         <EmojiPicker onEmojiClick={onEmojiClick} />
       </div>
