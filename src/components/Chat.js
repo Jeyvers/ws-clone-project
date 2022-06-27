@@ -5,7 +5,6 @@ import {
   query,
   doc,
   addDoc,
-  serverTimestamp,
 } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
@@ -22,7 +21,6 @@ import {
   CloseIcon,
 } from '../imports';
 import { useGlobalContext } from '../StateProvider';
-import zIndex from '@mui/material/styles/zIndex';
 import EmojiPicker from 'emoji-picker-react';
 
 const Chat = () => {
@@ -36,7 +34,6 @@ const Chat = () => {
   const [chosenEmoji, setChosenEmoji] = useState(null);
 
   const onEmojiClick = (event, emojiObject) => {
-    console.log(emojiObject);
     setChosenEmoji(emojiObject);
     setInput(input + emojiObject.emoji);
   };
@@ -136,14 +133,6 @@ const Chat = () => {
       </div>
       <div className='chat-messages'>
         {messages?.map((message, index) => {
-          // const trial = messages[5].timestampII;
-          // console.log(
-          //   'DATE MOMENT',
-          //   moment().format('l'),
-          //   moment().format('LT')
-          // );
-          // console.log(trial);
-          // console.log(moment(trial.nanoseconds).format('l'));
           return (
             <div
               key={index}
@@ -160,7 +149,7 @@ const Chat = () => {
           );
         })}
       </div>
-    
+
       <div className={` emoji-container ${!showEmoji && 'hidden'}`}>
         <EmojiPicker onEmojiClick={onEmojiClick} />
       </div>

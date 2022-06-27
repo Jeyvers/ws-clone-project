@@ -36,12 +36,11 @@ const SingleChat = ({ id, data }) => {
               ? data.name.substring(0, 10) + '...'
               : data?.name}
           </p>
-          {console.log(data.time)}
+
           <p className='chat-time'>
             <small>{messages ? messages[0]?.timestamp : data.time}</small>
           </p>
           <p className='chat-message'>
-            {console.log(messages)}
             {messages[0] ? `${messages[0]?.name}: ` : `WhatsApp : `}
             {messages[0]
               ? messages[0]?.message.length > 24
