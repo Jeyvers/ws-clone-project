@@ -6,7 +6,7 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase';
 
 const SingleChat = ({ id, data }) => {
-  const [messages, setMessages] = useState();
+  const [messages, setMessages] = useState([]);
   const { roomsCol } = useGlobalContext();
 
   useEffect(() => {
@@ -32,20 +32,22 @@ const SingleChat = ({ id, data }) => {
         '
         >
           <p className='chat-name'>
-            {data.name.length > 10
+            {data?.name.length > 10
               ? data.name.substring(0, 10) + '...'
-              : data.name}
+              : data?.name}
           </p>
+          {console.log(data.time)}
           <p className='chat-time'>
-            <small>{messages ? messages[0].timestamp : data.time}</small>
+            <small>{messages ? messages[0]?.timestamp : data.time}</small>
           </p>
           <p className='chat-message'>
-            {messages && `${messages[0]?.name}: `}
-            {messages
-              ? messages[0].message.length > 24
+            {console.log(messages)}
+            {messages[0] ? `${messages[0]?.name}: ` : `WhatsApp : `}
+            {messages[0]
+              ? messages[0]?.message.length > 24
                 ? messages[0].message.substring(0, 24) + '...'
-                : messages[0].message
-              : data.name + 'created at' + data.time}
+                : messages[0]?.message
+              : 'Welcome!'}
           </p>
         </div>
       </div>

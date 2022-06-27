@@ -265,6 +265,10 @@ input {
   margin: 0px;
 }
 
+.chat-create .MuiSvgIcon-root.close-emoji {
+  color: #00a884;
+}
+
 .chat-create span {
   -webkit-box-flex: 0.2;
       -ms-flex: 0.2;
@@ -275,6 +279,7 @@ input {
   background: rgba(255, 255, 255, 0.057);
   border-radius: 10px;
   padding: 2px 10px;
+  width: 100%;
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
@@ -285,6 +290,7 @@ input {
   color: #fff;
   padding: 8px 10px;
   height: 50%;
+  width: 100%;
 }
 
 .chat-create input:focus {
