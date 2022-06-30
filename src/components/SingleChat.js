@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../StateProvider';
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase';
+import moment from 'moment';
 
 const SingleChat = ({ id, data }) => {
   const [messages, setMessages] = useState([]);
-  const { roomsCol } = useGlobalContext();
+  const { user } = useGlobalContext();
+  const workingTime = messages[0]?.timestamp;
 
   useEffect(() => {
     if (id) {
@@ -38,10 +40,19 @@ const SingleChat = ({ id, data }) => {
           </p>
 
           <p className='chat-time'>
-            <small>{messages ? messages[0]?.timestamp : data.time}</small>
+            <small>
+              {messages ? moment(workingTime).format('LT') : data.time}
+            </small>
           </p>
           <p className='chat-message'>
-            {messages[0] ? `${messages[0]?.name}: ` : `WhatsApp : `}
+            {messages[0]
+              ? ` ${
+                  messages[0].name === user.displayName
+                    ? 'You'
+                    : messages[0].name
+                }: `
+              : `WhatsApp : `}
+
             {messages[0]
               ? messages[0]?.message.length > 24
                 ? messages[0].message.substring(0, 24) + '...'

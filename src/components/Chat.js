@@ -6,7 +6,7 @@ import {
   doc,
   addDoc,
 } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import { db } from '../firebase';
 import moment from 'moment';
@@ -28,6 +28,7 @@ const Chat = () => {
   const [groupName, setGroupName] = useState('');
   const [showEmoji, setShowEmoji] = useState(false);
   const { groupId } = useParams();
+  const chatWindow = useRef(null);
   const { user, messages, setMessages } = useGlobalContext();
   const messagesCol = collection(db, 'groups', groupId, 'messages');
   const messagesColQuery = query(messagesCol, orderBy('timestamp', 'asc'));
@@ -44,8 +45,7 @@ const Chat = () => {
     addDoc(messagesCol, {
       message: input,
       name: user.displayName,
-      // timestamp: moment().format('LT'),
-      timestamp: moment().format('lll'),
+      timestamp: moment().format('ll LTS'),
     });
     setInput('');
     setShowEmoji(false);
@@ -54,7 +54,6 @@ const Chat = () => {
   useEffect(() => {
     if (groupId) {
       //
-
       onSnapshot(doc(db, 'groups', groupId), (doc) =>
         setGroupName(doc.data().name)
       );
@@ -93,7 +92,8 @@ const Chat = () => {
           </span>
         </div>
       </div>
-      <div className='chat-messages'>
+
+      <div className='chat-messages' ref={chatWindow}>
         {messages?.map((message, index) => {
           return (
             <div
@@ -104,9 +104,14 @@ const Chat = () => {
                   : 'sender-msg'
               }`}
             >
-              <small className='sender-name'> ~ {message.name}</small>
+              <small className='sender-name'>
+                {' '}
+                ~ {message.name === user.displayName ? 'You' : message.name}
+              </small>
               {message.message}
-              <small className='time'>{message.timestamp}</small>
+              <small className='time'>
+                {moment(message.timestamp).format('lll')}
+              </small>
             </div>
           );
         })}
@@ -156,7 +161,3 @@ const Chat = () => {
 };
 
 export default Chat;
-
-// Todo
-//  Change Emoji icon on showEmoji
-// Change Voice icon on type

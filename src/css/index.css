@@ -374,6 +374,16 @@ input {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .chat {
+    -ms-grid-rows: auto 1fr 85px;
+        grid-template-rows: auto 1fr 85px;
+  }
+  .chat-create {
+    padding-bottom: 20px;
+  }
+}
+
 a {
   text-decoration: none;
 }

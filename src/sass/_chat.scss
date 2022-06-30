@@ -88,14 +88,13 @@
     }
 }
 
-
-
 .chat-create {
 
     background: $secondDG-dark-color;
     display: flex;
     align-items: center;
     padding: 5px 10px;
+
 
 
     .MuiSvgIcon-root {
@@ -196,5 +195,15 @@
     to {
         bottom: 0;
         display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .chat {
+        grid-template-rows: auto 1fr 85px;
+    }
+
+    .chat-create {
+        padding-bottom: 20px;
     }
 }
